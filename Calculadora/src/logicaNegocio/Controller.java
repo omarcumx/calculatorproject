@@ -1,14 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package logicaNegocio;
 
 import java.util.List;
 
 /**
  *
- * @author Administrador
+ * @author DeveloperDreamTeam
  */
 public class Controller {
 
@@ -41,16 +37,16 @@ public class Controller {
 
         switch (tipoDeOperacion) {
             case 1:
-                resultado =  operacion.sum(argumentos.get(0), argumentos.get(1));
+                resultado = operacion.sum(argumentos.get(0), argumentos.get(1));
                 break;
             case 2:
-                resultado =  operacion.substraction(argumentos.get(0), argumentos.get(1));
+                resultado = operacion.substraction(argumentos.get(0), argumentos.get(1));
                 break;
             case 3:
-                resultado =  operacion.mult(argumentos.get(0), argumentos.get(1));
+                resultado = operacion.mult(argumentos.get(0), argumentos.get(1));
                 break;
             case 4:
-                resultado =  operacion.div(argumentos.get(0), argumentos.get(1));
+                resultado = operacion.div(argumentos.get(0), argumentos.get(1));
                 break;
         }
 

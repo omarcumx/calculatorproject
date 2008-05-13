@@ -1,8 +1,3 @@
-/*
- * GUI.java
- *
- * Created on 9 de mayo de 2008, 07:44 PM
- */
 package presentacion;
 
 import java.awt.Color;
@@ -11,15 +6,14 @@ import java.awt.event.KeyEvent;
 import java.util.Stack;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.InputVerifier;
 import javax.swing.JButton;
-import javax.swing.JComponent;
 import javax.swing.UIManager;
 import logicaNegocio.Controller;
+import logicaNegocio.Complex;
 
 /**
  *
- * @author  Administrador
+ * @author DeveloperDreamTeam
  */
 public class GUI extends javax.swing.JFrame {
 
@@ -29,7 +23,7 @@ public class GUI extends javax.swing.JFrame {
     private Stack<Object> argumentos = new Stack<Object>();
     private boolean borrar = false;
     private boolean bloquear = false;
-    private boolean campo = false;
+    private boolean campo = true;
 
     /** Creates new form GUI */
     public GUI() {
@@ -40,8 +34,6 @@ public class GUI extends javax.swing.JFrame {
         }
 
         initComponents();
-
-
         argumento.addKeyListener(new KeyAdapter() {
 
             @Override
@@ -54,10 +46,8 @@ public class GUI extends javax.swing.JFrame {
                         argumento.setText("");
                         borrar = false;
                     }
-
                     return;
                 }
-
                 // Adicionar Punto
                 if (caracter == '.') {
                     if (punto) {
@@ -92,7 +82,58 @@ public class GUI extends javax.swing.JFrame {
                 if (caracter == KeyEvent.VK_ESCAPE) {
                     botonBorrarTodoActionPerformed(null);
                 }
+                e.consume();
+            }
+        });
 
+        argumento1.addKeyListener(new KeyAdapter() {
+
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char caracter = e.getKeyChar();
+
+                // Adicionar Digito
+                if ((caracter >= '0') && (caracter <= '9')) {
+                    if (borrar) {
+                        argumento1.setText("");
+                        borrar = false;
+                    }
+                    return;
+                }
+                // Adicionar Punto
+                if (caracter == '.') {
+                    if (punto) {
+                        e.consume();
+                    } else {
+                        punto = true;
+                    }
+                    return;
+                }
+
+                // Operaciones
+                if (caracter == '+') {
+                    botonSumaActionPerformed(null);
+                }
+
+                if (caracter == '-') {
+                    botonRestaActionPerformed(null);
+                }
+
+                if (caracter == '*') {
+                    botonMultiplicacionActionPerformed(null);
+                }
+
+                if (caracter == '/') {
+                    botonDivisionActionPerformed(null);
+                }
+
+                if (caracter == KeyEvent.VK_ENTER) {
+                    botonIgualActionPerformed(null);
+                }
+
+                if (caracter == KeyEvent.VK_ESCAPE) {
+                    botonBorrarTodoActionPerformed(null);
+                }
                 e.consume();
             }
         });
@@ -356,8 +397,18 @@ public class GUI extends javax.swing.JFrame {
         });
 
         argumento.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        argumento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                argumentoMouseClicked(evt);
+            }
+        });
 
         argumento1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        argumento1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                argumento1MouseClicked(evt);
+            }
+        });
 
         parentesisIzq.setText("(");
 
@@ -523,14 +574,23 @@ public class GUI extends javax.swing.JFrame {
             JButton boton = (JButton) evt.getSource();
             if (borrar) {
                 argumento.setText("");
+                argumento1.setText("");
                 borrar = false;
             }
 
             if (!boton.getName().equals(".")) {
-                argumento.setText(argumento.getText() + boton.getName());
+                if (campo) {
+                    argumento.setText(argumento.getText() + boton.getName());
+                } else {
+                    argumento1.setText(argumento1.getText() + boton.getName());
+                }
             }
             if (boton.getName().equals(".") && !punto) {
-                argumento.setText(argumento.getText() + boton.getName());
+                if (campo) {
+                    argumento.setText(argumento.getText() + boton.getName());
+                } else {
+                    argumento1.setText(argumento1.getText() + boton.getName());
+                }
                 punto = true;
                 tipoDeDatos = 2;
             }
@@ -539,23 +599,44 @@ public class GUI extends javax.swing.JFrame {
 
     private void borrarDigito(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarDigito
         if (!bloquear) {
-            String original = argumento.getText();
-            if (!original.equals("")) {
-                if (argumento.getText().charAt(argumento.getText().length() - 1) == '.') {
-                    punto = false;
+            String original;
+            if (campo) {
+                original = argumento.getText();
+                if (!original.equals("")) {
+                    if (argumento.getText().charAt(argumento.getText().length() - 1) == '.') {
+                        punto = false;
+                    }
+                    argumento.setText(original.substring(0, original.length() - 1));
                 }
-                argumento.setText(original.substring(0, original.length() - 1));
+            } else {
+                original = argumento1.getText();
+                if (!original.equals("")) {
+                    if (argumento1.getText().charAt(argumento1.getText().length() - 1) == '.') {
+                        punto = false;
+                    }
+                    argumento1.setText(original.substring(0, original.length() - 1));
+                }
             }
         }
 }//GEN-LAST:event_borrarDigito
 
     private void botonSignoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSignoActionPerformed
         if (!bloquear) {
-            if (argumento.getText().contains("-")) {
-                String original = argumento.getText();
-                argumento.setText(original.substring(1, original.length()));
+            String original;
+            if (campo) {
+                if (argumento.getText().contains("-")) {
+                    original = argumento.getText();
+                    argumento.setText(original.substring(1, original.length()));
+                } else {
+                    argumento.setText("-" + argumento.getText());
+                }
             } else {
-                argumento.setText("-" + argumento.getText());
+                if (argumento1.getText().contains("-")) {
+                    original = argumento1.getText();
+                    argumento1.setText(original.substring(1, original.length()));
+                } else {
+                    argumento1.setText("-" + argumento1.getText());
+                }
             }
         }
 }//GEN-LAST:event_botonSignoActionPerformed
@@ -568,6 +649,10 @@ public class GUI extends javax.swing.JFrame {
         argumento.setSize(130, (int) argumento.getSize().getHeight());
         parentesisIzq.setForeground(this.getBackground());
         parentesisDer.setForeground(this.getBackground());
+        argumento.setText("");
+        argumento1.setText("");
+        argumentos.removeAllElements();
+        campo = true;
 }//GEN-LAST:event_botonRealActionPerformed
 
     private void botonImaginarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonImaginarioActionPerformed
@@ -578,17 +663,25 @@ public class GUI extends javax.swing.JFrame {
         argumento1.setVisible(true);
         parentesisIzq.setForeground(Color.BLACK);
         parentesisDer.setForeground(Color.BLACK);
+        argumento.setText("");
+        argumento1.setText("");
+        argumentos.removeAllElements();
     }//GEN-LAST:event_botonImaginarioActionPerformed
 
     private void botonBorrarTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarTodoActionPerformed
         argumentos.removeAllElements();
         argumento.setText("");
+        argumento1.setText("");
         bloquear = false;
     }//GEN-LAST:event_botonBorrarTodoActionPerformed
 
     private void botonBorrarArgumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarArgumentoActionPerformed
         if (!bloquear) {
-            argumento.setText("");
+            if (campo) {
+                argumento.setText("");
+            } else {
+                argumento1.setText("");
+            }
             punto = false;
         }
 }//GEN-LAST:event_botonBorrarArgumentoActionPerformed
@@ -597,8 +690,15 @@ public class GUI extends javax.swing.JFrame {
         if (!bloquear) {
             botonIgualActionPerformed(null);
             tipoDeOperacion = 4;
-            if (!argumento.getText().equals("")) {
-                argumentos.push(argumento.getText());
+            if (campo) {
+                if (!argumento.getText().equals("")) {
+                    argumentos.push(argumento.getText());
+                }
+            } else {
+                if (!argumento.getText().equals("") && !argumento1.getText().equals("")) {
+                    Complex argument = new Complex(Double.valueOf(argumento.getText()), Double.valueOf(argumento1.getText()));
+                    argumentos.push(argument);
+                }
             }
             punto = false;
             borrar = true;
@@ -609,8 +709,15 @@ public class GUI extends javax.swing.JFrame {
         if (!bloquear) {
             botonIgualActionPerformed(null);
             tipoDeOperacion = 3;
-            if (!argumento.getText().equals("") && !argumento.getText().equals("Error: división por cero")) {
-                argumentos.push(argumento.getText());
+            if (campo) {
+                if (!argumento.getText().equals("") && !argumento.getText().equals("Error:") && !argumento.getText().equals("/ por 0")) {
+                    argumentos.push(argumento.getText());
+                }
+            } else {
+                if (!argumento.getText().equals("") && !argumento1.getText().equals("") && !argumento.getText().equals("Error: ") && !argumento.getText().equals("Error: división por cero")) {
+                    Complex argument = new Complex(Double.valueOf(argumento.getText()), Double.valueOf(argumento1.getText()));
+                    argumentos.push(argument);
+                }
             }
             punto = false;
             borrar = true;
@@ -621,8 +728,15 @@ public class GUI extends javax.swing.JFrame {
         if (!bloquear) {
             botonIgualActionPerformed(null);
             tipoDeOperacion = 2;
-            if (!argumento.getText().equals("")) {
-                argumentos.push(argumento.getText());
+            if (campo) {
+                if (!argumento.getText().equals("")) {
+                    argumentos.push(argumento.getText());
+                }
+            } else {
+                if (!argumento.getText().equals("") && !argumento1.getText().equals("")) {
+                    Complex argument = new Complex(Double.valueOf(argumento.getText()), Double.valueOf(argumento1.getText()));
+                    argumentos.push(argument);
+                }
             }
             punto = false;
             borrar = true;
@@ -633,8 +747,15 @@ public class GUI extends javax.swing.JFrame {
         if (!bloquear) {
             botonIgualActionPerformed(null);
             tipoDeOperacion = 1;
-            if (!argumento.getText().equals("")) {
-                argumentos.push(argumento.getText());
+            if (campo) {
+                if (!argumento.getText().equals("")) {
+                    argumentos.push(argumento.getText());
+                }
+            } else {
+                if (!argumento.getText().equals("") && !argumento1.getText().equals("")) {
+                    Complex argument = new Complex(Double.valueOf(argumento.getText()), Double.valueOf(argumento1.getText()));
+                    argumentos.push(argument);
+                }
             }
             punto = false;
             borrar = true;
@@ -643,37 +764,75 @@ public class GUI extends javax.swing.JFrame {
 
     private void botonIgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIgualActionPerformed
         if (!bloquear) {
-            if (argumentos.size() == 1) {
-                if (argumento.getText().equals("")) {
-                    argumentos.push(argumentos.get(0));
-                } else {
-                    argumentos.push(argumento.getText());
-                }
+            if (campo) {
+                if (argumentos.size() == 1) {
+                    if (argumento.getText().equals("")) {
+                        argumentos.push(argumentos.get(0));
+                    } else {
+                        argumentos.push(argumento.getText());
+                    }
 
-                String arg0 = (String) argumentos.get(0);
-                String arg1 = (String) argumentos.get(1);
-                if (argumento.getText().contains(".") || arg0.contains(".")) {
-                    tipoDeDatos = 2;
-                } else {
-                    tipoDeDatos = 1;
-                }
-                if (tipoDeOperacion == 4 && argumento.getText().equals("0")) {
-                    argumento.setText("Error: división por cero");
-                    bloquear = true;
+                    String arg0 = (String) argumentos.get(0);
+                    String arg1 = (String) argumentos.get(1);
+                    if (argumento.getText().contains(".") || arg0.contains(".")) {
+                        tipoDeDatos = 2;
+                    } else {
+                        tipoDeDatos = 1;
+                    }
+                    if (tipoDeOperacion == 4 && argumento.getText().equals("0")) {
+                        argumento.setText("Error: división por cero");
+                        bloquear = true;
+                        argumentos.removeAllElements();
+                        borrar = true;
+                        return;
+                    }
+                    if (!arg0.equals(".") && !arg1.equals(".")) {
+                        argumento.setText("" + Controller.execute(tipoDeOperacion, tipoDeDatos, argumentos));
+                    } else {
+                        argumento.setText("");
+                    }
                     argumentos.removeAllElements();
                     borrar = true;
-                    return;
                 }
-                if (!arg0.equals(".") && !arg1.equals(".")) {
-                    argumento.setText("" + Controller.execute(tipoDeOperacion, tipoDeDatos, argumentos));
-                } else {
-                    argumento.setText("");
+            } else {
+                if (argumentos.size() == 1) {
+                    if (argumento.getText().equals("")) {
+                        argumentos.push(argumentos.get(0));
+                    } else {
+                        Complex argument = new Complex(Double.valueOf(argumento.getText()), Double.valueOf(argumento1.getText()));
+                        argumentos.push(argument);
+                    }
+                    tipoDeDatos = 3;
+                    if (tipoDeOperacion == 4 && (argumento.getText().equals("0") && argumento1.getText().equals("0"))) {
+                        argumento.setText("Error:");
+                        argumento1.setText("/ por 0");
+                        bloquear = true;
+                        argumentos.removeAllElements();
+                        borrar = true;
+                        return;
+                    }
+                    if (!argumento.getText().equals(".") && !argumento1.getText().equals(".")) {
+                        Complex resultado = (Complex) Controller.execute(tipoDeOperacion, tipoDeDatos, argumentos);
+                        argumento.setText(String.valueOf(resultado.getReal()));
+                        argumento1.setText(String.valueOf(resultado.getImag()));
+                    } else {
+                        argumento.setText("");
+                        argumento1.setText("");
+                    }
+                    argumentos.removeAllElements();
+                    borrar = true;
                 }
-                argumentos.removeAllElements();
-                borrar = true;
             }
         }
     }//GEN-LAST:event_botonIgualActionPerformed
+
+    private void argumentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_argumentoMouseClicked
+        campo = true;
+    }//GEN-LAST:event_argumentoMouseClicked
+
+    private void argumento1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_argumento1MouseClicked
+        campo = false;
+    }//GEN-LAST:event_argumento1MouseClicked
 
     /**
      * @param args the command line arguments

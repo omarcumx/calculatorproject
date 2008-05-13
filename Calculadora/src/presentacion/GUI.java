@@ -24,6 +24,7 @@ public class GUI extends javax.swing.JFrame {
     private boolean borrar = false;
     private boolean bloquear = false;
     private boolean campo = true;
+    private boolean imaginario = true;
 
     /** Creates new form GUI */
     public GUI() {
@@ -182,9 +183,10 @@ public class GUI extends javax.swing.JFrame {
         setTitle("Calculadora");
         setResizable(false);
 
-        boton0.setFont(new java.awt.Font("Arial", 1, 12));
+        boton0.setFont(new java.awt.Font("Arial", 1, 14));
         boton0.setForeground(java.awt.Color.blue);
         boton0.setText("0");
+        boton0.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         boton0.setMargin(new java.awt.Insets(2, 2, 2, 2));
         boton0.setName("0"); // NOI18N
         boton0.addActionListener(new java.awt.event.ActionListener() {
@@ -193,9 +195,10 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        boton1.setFont(new java.awt.Font("Arial", 1, 12));
+        boton1.setFont(new java.awt.Font("Arial", 1, 14));
         boton1.setForeground(java.awt.Color.blue);
         boton1.setText("1");
+        boton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         boton1.setMargin(new java.awt.Insets(2, 2, 2, 2));
         boton1.setName("1"); // NOI18N
         boton1.addActionListener(new java.awt.event.ActionListener() {
@@ -204,9 +207,10 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        boton2.setFont(new java.awt.Font("Arial", 1, 12));
+        boton2.setFont(new java.awt.Font("Arial", 1, 14));
         boton2.setForeground(java.awt.Color.blue);
         boton2.setText("2");
+        boton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         boton2.setMargin(new java.awt.Insets(2, 2, 2, 2));
         boton2.setName("2"); // NOI18N
         boton2.addActionListener(new java.awt.event.ActionListener() {
@@ -215,9 +219,10 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        boton3.setFont(new java.awt.Font("Arial", 1, 12));
+        boton3.setFont(new java.awt.Font("Arial", 1, 14));
         boton3.setForeground(java.awt.Color.blue);
         boton3.setText("3");
+        boton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         boton3.setMargin(new java.awt.Insets(2, 2, 2, 2));
         boton3.setName("3"); // NOI18N
         boton3.addActionListener(new java.awt.event.ActionListener() {
@@ -226,9 +231,10 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        boton4.setFont(new java.awt.Font("Arial", 1, 12));
+        boton4.setFont(new java.awt.Font("Arial", 1, 14));
         boton4.setForeground(java.awt.Color.blue);
         boton4.setText("4");
+        boton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         boton4.setMargin(new java.awt.Insets(2, 2, 2, 2));
         boton4.setName("4"); // NOI18N
         boton4.addActionListener(new java.awt.event.ActionListener() {
@@ -237,9 +243,10 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        boton5.setFont(new java.awt.Font("Arial", 1, 12));
+        boton5.setFont(new java.awt.Font("Arial", 1, 14));
         boton5.setForeground(java.awt.Color.blue);
         boton5.setText("5");
+        boton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         boton5.setMargin(new java.awt.Insets(2, 2, 2, 2));
         boton5.setName("5"); // NOI18N
         boton5.addActionListener(new java.awt.event.ActionListener() {
@@ -248,9 +255,10 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        boton6.setFont(new java.awt.Font("Arial", 1, 12));
+        boton6.setFont(new java.awt.Font("Arial", 1, 14));
         boton6.setForeground(java.awt.Color.blue);
         boton6.setText("6");
+        boton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         boton6.setMargin(new java.awt.Insets(2, 2, 2, 2));
         boton6.setName("6"); // NOI18N
         boton6.addActionListener(new java.awt.event.ActionListener() {
@@ -259,9 +267,10 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        boton7.setFont(new java.awt.Font("Arial", 1, 12));
+        boton7.setFont(new java.awt.Font("Arial", 1, 14));
         boton7.setForeground(java.awt.Color.blue);
         boton7.setText("7");
+        boton7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         boton7.setMargin(new java.awt.Insets(2, 2, 2, 2));
         boton7.setName("7"); // NOI18N
         boton7.addActionListener(new java.awt.event.ActionListener() {
@@ -270,9 +279,10 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        boton8.setFont(new java.awt.Font("Arial", 1, 12));
+        boton8.setFont(new java.awt.Font("Arial", 1, 14));
         boton8.setForeground(java.awt.Color.blue);
         boton8.setText("8");
+        boton8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         boton8.setMargin(new java.awt.Insets(2, 2, 2, 2));
         boton8.setName("8"); // NOI18N
         boton8.addActionListener(new java.awt.event.ActionListener() {
@@ -281,9 +291,10 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        boton9.setFont(new java.awt.Font("Arial", 1, 12));
+        boton9.setFont(new java.awt.Font("Arial", 1, 14));
         boton9.setForeground(java.awt.Color.blue);
         boton9.setText("9");
+        boton9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         boton9.setMargin(new java.awt.Insets(2, 2, 2, 2));
         boton9.setName("9"); // NOI18N
         boton9.addActionListener(new java.awt.event.ActionListener() {
@@ -292,9 +303,10 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        botonPunto.setFont(new java.awt.Font("Arial", 1, 12));
+        botonPunto.setFont(new java.awt.Font("Arial", 1, 14));
         botonPunto.setForeground(java.awt.Color.blue);
         botonPunto.setText(".");
+        botonPunto.setToolTipText("Punto Decimal");
         botonPunto.setMargin(new java.awt.Insets(2, 2, 2, 2));
         botonPunto.setName("."); // NOI18N
         botonPunto.addActionListener(new java.awt.event.ActionListener() {
@@ -303,9 +315,11 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        botonSuma.setFont(new java.awt.Font("Arial", 1, 12));
+        botonSuma.setFont(new java.awt.Font("Arial", 1, 14));
         botonSuma.setForeground(java.awt.Color.red);
         botonSuma.setText("+");
+        botonSuma.setToolTipText("Suma");
+        botonSuma.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         botonSuma.setMargin(new java.awt.Insets(2, 2, 2, 2));
         botonSuma.setName("1"); // NOI18N
         botonSuma.addActionListener(new java.awt.event.ActionListener() {
@@ -314,9 +328,11 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        botonResta.setFont(new java.awt.Font("Arial", 1, 12));
+        botonResta.setFont(new java.awt.Font("Arial", 1, 14));
         botonResta.setForeground(java.awt.Color.red);
         botonResta.setText("-");
+        botonResta.setToolTipText("Resta");
+        botonResta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         botonResta.setMargin(new java.awt.Insets(2, 2, 2, 2));
         botonResta.setName("2"); // NOI18N
         botonResta.addActionListener(new java.awt.event.ActionListener() {
@@ -325,9 +341,11 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        botonMultiplicacion.setFont(new java.awt.Font("Arial", 1, 12));
+        botonMultiplicacion.setFont(new java.awt.Font("Arial", 1, 14));
         botonMultiplicacion.setForeground(java.awt.Color.red);
         botonMultiplicacion.setText("*");
+        botonMultiplicacion.setToolTipText("Multiplicacion");
+        botonMultiplicacion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         botonMultiplicacion.setMargin(new java.awt.Insets(2, 2, 2, 2));
         botonMultiplicacion.setName("3"); // NOI18N
         botonMultiplicacion.addActionListener(new java.awt.event.ActionListener() {
@@ -336,9 +354,11 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        botonDivision.setFont(new java.awt.Font("Arial", 1, 12));
+        botonDivision.setFont(new java.awt.Font("Arial", 1, 14));
         botonDivision.setForeground(java.awt.Color.red);
         botonDivision.setText("/");
+        botonDivision.setToolTipText("Division");
+        botonDivision.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         botonDivision.setMargin(new java.awt.Insets(2, 2, 2, 2));
         botonDivision.setName("4"); // NOI18N
         botonDivision.addActionListener(new java.awt.event.ActionListener() {
@@ -347,18 +367,22 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        botonIgual.setFont(new java.awt.Font("Arial", 1, 12));
+        botonIgual.setFont(new java.awt.Font("Arial", 1, 14));
         botonIgual.setForeground(java.awt.Color.red);
         botonIgual.setText("=");
+        botonIgual.setToolTipText("Resultado");
+        botonIgual.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         botonIgual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonIgualActionPerformed(evt);
             }
         });
 
-        botonBorrarDigito.setFont(new java.awt.Font("Arial", 0, 12));
+        botonBorrarDigito.setFont(new java.awt.Font("Arial", 0, 14));
         botonBorrarDigito.setForeground(java.awt.Color.magenta);
         botonBorrarDigito.setText("←");
+        botonBorrarDigito.setToolTipText("Retroceso");
+        botonBorrarDigito.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         botonBorrarDigito.setMargin(new java.awt.Insets(2, 2, 2, 2));
         botonBorrarDigito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -366,9 +390,11 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        botonBorrarArgumento.setFont(new java.awt.Font("Arial", 1, 12));
+        botonBorrarArgumento.setFont(new java.awt.Font("Arial", 0, 14));
         botonBorrarArgumento.setForeground(java.awt.Color.magenta);
         botonBorrarArgumento.setText("CE");
+        botonBorrarArgumento.setToolTipText("Borrar");
+        botonBorrarArgumento.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         botonBorrarArgumento.setMargin(new java.awt.Insets(2, 2, 2, 2));
         botonBorrarArgumento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -376,18 +402,25 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        botonBorrarTodo.setFont(new java.awt.Font("Arial", 1, 12));
+        botonBorrarTodo.setFont(new java.awt.Font("Arial", 0, 14));
         botonBorrarTodo.setForeground(java.awt.Color.magenta);
         botonBorrarTodo.setText("C");
+        botonBorrarTodo.setToolTipText("Borra Todo");
+        botonBorrarTodo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        botonBorrarTodo.setMaximumSize(new java.awt.Dimension(29, 27));
+        botonBorrarTodo.setMinimumSize(new java.awt.Dimension(29, 27));
+        botonBorrarTodo.setPreferredSize(new java.awt.Dimension(29, 27));
         botonBorrarTodo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonBorrarTodoActionPerformed(evt);
             }
         });
 
-        botonSigno.setFont(new java.awt.Font("Arial", 1, 12));
+        botonSigno.setFont(new java.awt.Font("Arial", 1, 14));
         botonSigno.setForeground(java.awt.Color.blue);
         botonSigno.setText("+/-");
+        botonSigno.setToolTipText("Cambiar Signo");
+        botonSigno.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         botonSigno.setMargin(new java.awt.Insets(2, 2, 2, 2));
         botonSigno.setName("+"); // NOI18N
         botonSigno.addActionListener(new java.awt.event.ActionListener() {
@@ -397,6 +430,7 @@ public class GUI extends javax.swing.JFrame {
         });
 
         argumento.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        argumento.setToolTipText("Parte Real");
         argumento.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 argumentoMouseClicked(evt);
@@ -404,6 +438,7 @@ public class GUI extends javax.swing.JFrame {
         });
 
         argumento1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        argumento1.setToolTipText("Parte Imaginaria");
         argumento1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 argumento1MouseClicked(evt);
@@ -458,28 +493,27 @@ public class GUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(botonMultiplicacion))
                     .addGroup(calculadoraLayout.createSequentialGroup()
-                        .addGroup(calculadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(calculadoraLayout.createSequentialGroup()
-                                .addComponent(boton7, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(boton8, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(boton9, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(calculadoraLayout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(parentesisIzq)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(argumento, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(2, 2, 2)
-                                .addComponent(signoMas)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(argumento1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(parentesisDer)))
+                        .addGap(3, 3, 3)
+                        .addComponent(parentesisIzq)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(calculadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(botonBorrarDigito, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(botonDivision, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(argumento, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)
+                        .addComponent(signoMas)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(argumento1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(parentesisDer)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botonBorrarDigito, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(calculadoraLayout.createSequentialGroup()
+                        .addComponent(boton7, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(boton8, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(boton9, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botonDivision, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addContainerGap())
         );
 
@@ -524,7 +558,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(calculadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonBorrarArgumento)
                     .addComponent(botonIgual)
-                    .addComponent(botonBorrarTodo))
+                    .addComponent(botonBorrarTodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -653,6 +687,7 @@ public class GUI extends javax.swing.JFrame {
         argumento1.setText("");
         argumentos.removeAllElements();
         campo = true;
+        imaginario = false;
 }//GEN-LAST:event_botonRealActionPerformed
 
     private void botonImaginarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonImaginarioActionPerformed
@@ -666,6 +701,7 @@ public class GUI extends javax.swing.JFrame {
         argumento.setText("");
         argumento1.setText("");
         argumentos.removeAllElements();
+        imaginario = true;
     }//GEN-LAST:event_botonImaginarioActionPerformed
 
     private void botonBorrarTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarTodoActionPerformed
@@ -677,9 +713,10 @@ public class GUI extends javax.swing.JFrame {
 
     private void botonBorrarArgumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarArgumentoActionPerformed
         if (!bloquear) {
-            if (campo) {
+            if (!imaginario) {
                 argumento.setText("");
             } else {
+                argumento.setText("");
                 argumento1.setText("");
             }
             punto = false;
@@ -690,7 +727,7 @@ public class GUI extends javax.swing.JFrame {
         if (!bloquear) {
             botonIgualActionPerformed(null);
             tipoDeOperacion = 4;
-            if (campo) {
+            if (!imaginario) {
                 if (!argumento.getText().equals("")) {
                     argumentos.push(argumento.getText());
                 }
@@ -709,7 +746,7 @@ public class GUI extends javax.swing.JFrame {
         if (!bloquear) {
             botonIgualActionPerformed(null);
             tipoDeOperacion = 3;
-            if (campo) {
+            if (!imaginario) {
                 if (!argumento.getText().equals("") && !argumento.getText().equals("Error:") && !argumento.getText().equals("/ por 0")) {
                     argumentos.push(argumento.getText());
                 }
@@ -728,7 +765,7 @@ public class GUI extends javax.swing.JFrame {
         if (!bloquear) {
             botonIgualActionPerformed(null);
             tipoDeOperacion = 2;
-            if (campo) {
+            if (!imaginario) {
                 if (!argumento.getText().equals("")) {
                     argumentos.push(argumento.getText());
                 }
@@ -747,7 +784,7 @@ public class GUI extends javax.swing.JFrame {
         if (!bloquear) {
             botonIgualActionPerformed(null);
             tipoDeOperacion = 1;
-            if (campo) {
+            if (!imaginario) {
                 if (!argumento.getText().equals("")) {
                     argumentos.push(argumento.getText());
                 }
@@ -764,7 +801,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void botonIgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIgualActionPerformed
         if (!bloquear) {
-            if (campo) {
+            if (!imaginario) {
                 if (argumentos.size() == 1) {
                     if (argumento.getText().equals("")) {
                         argumentos.push(argumentos.get(0));
@@ -796,12 +833,8 @@ public class GUI extends javax.swing.JFrame {
                 }
             } else {
                 if (argumentos.size() == 1) {
-                    if (argumento.getText().equals("")) {
-                        argumentos.push(argumentos.get(0));
-                    } else {
-                        Complex argument = new Complex(Double.valueOf(argumento.getText()), Double.valueOf(argumento1.getText()));
-                        argumentos.push(argument);
-                    }
+                    Complex argument = new Complex(Double.valueOf(argumento.getText()), Double.valueOf(argumento1.getText()));
+                    argumentos.push(argument);
                     tipoDeDatos = 3;
                     if (tipoDeOperacion == 4 && (argumento.getText().equals("0") && argumento1.getText().equals("0"))) {
                         argumento.setText("Error:");

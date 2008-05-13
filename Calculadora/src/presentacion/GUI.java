@@ -29,6 +29,7 @@ public class GUI extends javax.swing.JFrame {
     private Stack<Object> argumentos = new Stack<Object>();
     private boolean borrar = false;
     private boolean bloquear = false;
+    private boolean campo = false;
 
     /** Creates new form GUI */
     public GUI() {
@@ -566,6 +567,7 @@ public class GUI extends javax.swing.JFrame {
         argumento1.setVisible(false);
         argumento.setSize(130, (int) argumento.getSize().getHeight());
         parentesisIzq.setForeground(this.getBackground());
+        parentesisDer.setForeground(this.getBackground());
 }//GEN-LAST:event_botonRealActionPerformed
 
     private void botonImaginarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonImaginarioActionPerformed
@@ -575,6 +577,7 @@ public class GUI extends javax.swing.JFrame {
         argumento.setSize(50, (int) argumento.getSize().getHeight());
         argumento1.setVisible(true);
         parentesisIzq.setForeground(Color.BLACK);
+        parentesisDer.setForeground(Color.BLACK);
     }//GEN-LAST:event_botonImaginarioActionPerformed
 
     private void botonBorrarTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarTodoActionPerformed

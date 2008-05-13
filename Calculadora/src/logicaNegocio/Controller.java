@@ -4,9 +4,7 @@
  */
 package logicaNegocio;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 
 /**
  *
@@ -24,7 +22,7 @@ public class Controller {
      * @return
      */
     public static Object execute(int tipoDeOperacion, int tipoDeDato, List<Object> argumentos) {
-        Number resultado = null;
+        Object resultado = null;
 
         switch (tipoDeDato) {
             case 1:
@@ -43,16 +41,16 @@ public class Controller {
 
         switch (tipoDeOperacion) {
             case 1:
-                resultado = (Number) operacion.sum(argumentos.get(0), argumentos.get(1));
+                resultado =  operacion.sum(argumentos.get(0), argumentos.get(1));
                 break;
             case 2:
-                resultado = (Number) operacion.substraction(argumentos.get(0), argumentos.get(1));
+                resultado =  operacion.substraction(argumentos.get(0), argumentos.get(1));
                 break;
             case 3:
-                resultado = (Number) operacion.mult(argumentos.get(0), argumentos.get(1));
+                resultado =  operacion.mult(argumentos.get(0), argumentos.get(1));
                 break;
             case 4:
-                resultado = (Number) operacion.div(argumentos.get(0), argumentos.get(1));
+                resultado =  operacion.div(argumentos.get(0), argumentos.get(1));
                 break;
         }
 
